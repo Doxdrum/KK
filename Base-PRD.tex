@@ -80,7 +80,15 @@ where the hatted quantities are defined on the whole $D+1$-dimensional spacetime
     \hvif{*} &= e^{\beta \phi} \left( \de{\xi} + \Ag[1] \right),
   \end{split}
 \end{equation}
-where the asterisk denotes the index along the extra dimension.
+where the asterisk denotes the index along the extra dimension. These vielbeins yield 
+\begin{equation}
+  \begin{split}
+    \hspife{ab}{} &=\spife{ab}{} + \alpha e^{-\alpha \phi} \left( \pau{b} \phi \, \hvif{a} - \partial^{a} \phi \, \hvif{b} \right) \\
+    & \quad - \frac{1}{2} e^{(\beta - 2\alpha) \phi} \Fg^{a b} \, \hvif{*}
+    \\
+    \hspife{*}{a} &= \beta e^{-\alpha \phi} \pa{a} \phi \, \hvif{*} + \frac{1}{2} e^{(\beta - 2\alpha) \phi} \Fg_{a b} \, \hvif{b} 
+  \end{split}
+\end{equation}
 
 \subsection*{Killing vectors}
 
@@ -88,7 +96,7 @@ The Killing vectors of the metric ansatz in Eq.~\eqref{KKansatz} are
 \begin{equation}
   \begin{split}
     \Xi^\mu &= \Xi^\mu(x), \\
-    \Xi^*  &= c \xi + \lambda(x).
+    \Xi^*  &= c \xi + \zeta(x).
   \end{split}
   \label{Kvector}
 \end{equation}
@@ -97,7 +105,7 @@ From these Killing vectors, the field transformations are
   \label{Liephi}
   \pounds_\Xi \phi    &= \Xi^\mu \pa{\mu} \phi + \frac{c}{\beta}, \\
   \label{LieA}
-  \pounds_\Xi \Ag_\nu  &= \Xi^\mu \pa{\mu} \Ag_\nu + \Ag_\mu \pa{\nu} \Xi^\mu + \pa{\nu} \lambda(x) - c \Ag_\nu, \\
+  \pounds_\Xi \Ag_\nu  &= \Xi^\mu \pa{\mu} \Ag_\nu + \Ag_\mu \pa{\nu} \Xi^\mu + \pa{\nu} \zeta(x) - c \Ag_\nu, \\
   \label{Lieg}
   \pounds_\Xi g_{\nu\rho} &= \Xi^\mu \pa{\mu} g_{\nu\rho} + g_{\mu\rho} \pa{\nu} \Xi^\mu + g_{\nu\mu} \pa{\rho} \Xi^\mu - \frac{2\alpha c}{\beta} g_{\nu\rho}.
 \end{align}
@@ -118,6 +126,18 @@ At this stage, we will find the most general connection compatible with the symm
 the decomposition of a general connection into the Levi-Civita connection plus a contorsion tensor, allows us to simplify the task. Therefore, instead of analyzing the symmetries of the contorsion tensor, or equivalently the torsion tensor.
 
 The what follows we shall consider the following spin connection ansatz
+\begin{equation}
+  \begin{split}
+    \hspif{ab}{} &= \spif{ab}{} + \psi^{ab} \hvif{*}, \\
+    \hspif{a*}{} &= \bs{\lambda}^a + \chi^a \hvif{*},
+  \end{split}
+\end{equation}
+which yield a torsion 2-form given by
+\begin{equation}
+  \begin{split}
+    \hTf{a} &= e^{\alpha \phi} \big( \Tf{a} + \alpha \df[\phi] \we \vif{a}  - \psi^a{}_b \vif{e} \we \hvif{*} + e^{- \alpha \phi} \bs{\lambda}^a \hvif{*} \big)
+  \end{split}
+\end{equation}
 
 \subsection*{Transformation under gauge transformations}
 
@@ -160,20 +180,20 @@ Given the (anti)symmetry of the torsion tensor, the collineation equation is
 \end{equation}
 This equation yields four different collineation equations,
 \begin{equation}
-    \Xi^\sigma \pa{\sigma} \Tors{\mu}{*}{*} + \Tors{\sigma}{*}{*} \pa{\mu} \Xi^\sigma - \Tors{\mu}{\sigma}{*} \pa{\sigma} \lambda = 0,
+    \Xi^\sigma \pa{\sigma} \Tors{\mu}{*}{*} + \Tors{\sigma}{*}{*} \pa{\mu} \Xi^\sigma - \Tors{\mu}{\sigma}{*} \pa{\sigma} \zeta = 0,
 \end{equation}
 \begin{equation}
   \Xi^\sigma \pa{\sigma} \Tors{\mu}{\rho}{*} + \Tors{\sigma}{\rho}{*} \pa{\mu} \Xi^\sigma - \Tors{\mu}{\sigma}{*} \pa{\sigma} \Xi^\rho + c \Tors{\mu}{\rho}{*} = 0,
 \end{equation}
 \begin{equation}
   \begin{split}
-    \Xi^\sigma \pa{\sigma} \Tors{\mu}{*}{\nu} + 2 \Tors{\sigma}{*}{[\nu} \pa{\mu]} \Xi^\sigma + 2 \Tors{*}{*}{[\nu} \pa{\mu]} \lambda & \\
-    - \Tors{\mu}{\sigma}{\nu} \pa{\sigma} \lambda - c \Tors{\mu}{*}{\nu} &= 0,
+    \Xi^\sigma \pa{\sigma} \Tors{\mu}{*}{\nu} + 2 \Tors{\sigma}{*}{[\nu} \pa{\mu]} \Xi^\sigma + 2 \Tors{*}{*}{[\nu} \pa{\mu]} \zeta & \\
+    - \Tors{\mu}{\sigma}{\nu} \pa{\sigma} \zeta - c \Tors{\mu}{*}{\nu} &= 0,
   \end{split}
 \end{equation}
 \begin{equation}
   \begin{split}
-    \Xi^\sigma \pa{\sigma} \Tors{\mu}{\rho}{\nu} + 2 \Tors{\sigma}{\rho}{[\nu} \pa{\mu]} \Xi^\sigma + 2 \Tors{*}{\rho}{[\nu} \pa{\mu]} \lambda & \\
+    \Xi^\sigma \pa{\sigma} \Tors{\mu}{\rho}{\nu} + 2 \Tors{\sigma}{\rho}{[\nu} \pa{\mu]} \Xi^\sigma + 2 \Tors{*}{\rho}{[\nu} \pa{\mu]} \zeta & \\
     - \Tors{\mu}{\sigma}{\nu} \pa{\sigma} \Xi^\rho &= 0,
   \end{split}  
 \end{equation}
