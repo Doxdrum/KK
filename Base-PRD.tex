@@ -75,6 +75,7 @@ In what follows we shall consider a $D+1$-dimensional gravitational theory witho
 \end{equation}
 where the hatted quantities are defined on the whole $D+1$-dimensional spacetime, $\de{s}^2$ is the line element of the codimension one spacetime, $\xi$ is the extra dimension, $\Ag[1]$ and $\phi$ are a vector and scalar field on the $D$-dimensional spacetime. The metric ansatz is equivalent to a vielbein choice
 \begin{equation}
+    \label{vif-anz}
   \begin{split}
     \hvif{a} &= e^{\alpha \phi} \vif{a}, \\
     \hvif{*} &= e^{\beta \phi} \left( \de{\xi} + \Ag[1] \right),
@@ -83,7 +84,7 @@ where the hatted quantities are defined on the whole $D+1$-dimensional spacetime
 where the asterisk denotes the index along the extra dimension. These vielbeins yield 
 \begin{equation}
   \begin{split}
-    \hspife{ab}{} &=\spife{ab}{} + \alpha e^{-\alpha \phi} \left( \pau{b} \phi \, \hvif{a} - \partial^{a} \phi \, \hvif{b} \right) \\
+    \hspife{ab}{} &= \spife{ab}{} + \alpha e^{-\alpha \phi} \left( \pau{b} \phi \, \hvif{a} - \partial^{a} \phi \, \hvif{b} \right) \\
     & \quad - \frac{1}{2} e^{(\beta - 2\alpha) \phi} \Fg^{a b} \, \hvif{*}
     \\
     \hspife{*}{a} &= \beta e^{-\alpha \phi} \pa{a} \phi \, \hvif{*} + \frac{1}{2} e^{(\beta - 2\alpha) \phi} \Fg_{a b} \, \hvif{b} 
@@ -125,19 +126,21 @@ At this stage, we will find the most general connection compatible with the symm
 \end{equation}
 the decomposition of a general connection into the Levi-Civita connection plus a contorsion tensor, allows us to simplify the task. Therefore, instead of analyzing the symmetries of the contorsion tensor, or equivalently the torsion tensor.
 
-The what follows we shall consider the following spin connection ansatz
+In what follows we shall consider the following spin connection ansatz
 \begin{equation}
+  \label{spif-anz}
   \begin{split}
-    \hspif{ab}{} &= \spif{ab}{} + \psi^{ab} \hvif{*}, \\
-    \hspif{a*}{} &= \bs{\lambda}^a + \chi^a \hvif{*},
+    \hspif{ab}{} &= \hspife{ab}{} + \Kf{ab}{} + \psi^{ab} \hvif{*}, \\
+    \hspif{a*}{} &= \hspife{a*}{} + \bs{\lambda}^a + \chi^a \hvif{*},
   \end{split}
 \end{equation}
-which yield a torsion 2-form given by
-\begin{equation}
-  \begin{split}
-    \hTf{a} &= e^{\alpha \phi} \big( \Tf{a} + \alpha \df[\phi] \we \vif{a}  - \psi^a{}_b \vif{e} \we \hvif{*} + e^{- \alpha \phi} \bs{\lambda}^a \hvif{*} \big)
-  \end{split}
-\end{equation}
+%% which yield a torsion 2-form given by
+%% \begin{equation}
+%%   \begin{split}
+%%     \hTf{a} &= e^{\alpha \phi} \big( \Tf{a} + \alpha \df[\phi] \we \vif{a}  - \psi^a{}_b \vif{b} \we \hvif{*} + e^{- \alpha \phi} \bs{\lambda}^a \hvif{*} \big)
+%%   \end{split}
+%% \end{equation}
+where the explicit split between the torsion-free and contorsion has been made.
 
 \subsection*{Transformation under gauge transformations}
 
@@ -167,6 +170,61 @@ which yield a torsion 2-form given by
 
 %%%%%%%%% APPENDIXES %%%%%%%%%
 \appendix
+
+\section{Contorsion tensor}
+
+Given the ansatz for the spin connection in Eq.~\eqref{spif-anz}, the contorsion 1-form reads (the $\xi$ index has fixed value along the extra dimension)
+\begin{align}
+  \Contu{\mu}{a}{b} &= \contu{\mu}{a}{b} + e^{\beta \phi} \psi^{ab} \Ag_\mu \\
+  \Contu{\xi}{a}{b} &= e^{\beta \phi} \psi^{ab} \\
+  \Contu{\xi}{a}{*} &= e^{\beta \phi} \chi^{a}
+\end{align}
+
+\begin{equation}
+  \Contu{\xi}{\mu}{\nu} = e^{(\beta - 2\alpha)\phi} \psi^{\mu\nu}
+\end{equation}
+\begin{equation}
+  \Contu{\xi}{\xi}{\mu} = e^{(\beta - 2\alpha)\phi} \psi^{\mu\nu} \Ag_\nu - e^{-\alpha \phi} \chi^\mu
+\end{equation}
+\begin{equation}
+  \Contu{\rho}{\mu}{\nu} = e^{ - 2\alpha \phi} \contu{\rho}{\mu}{\nu} + e^{(\beta - 2\alpha)\phi} \Ag_\rho \psi^{\mu\nu}
+\end{equation}
+\begin{equation}
+  \begin{split}
+    \Contu{\rho}{\xi}{\nu} &= - e^{ - 2\alpha \phi} \contu{\rho}{\mu}{\nu} \Ag_\mu - e^{(\beta - 2\alpha)\phi} \psi^{\mu\nu} \Ag_\rho \Ag_\mu \\
+    & \quad - e^{ - (\beta +\alpha) \phi} \lambda_\rho{}^\nu - e^{ - \alpha \phi} \Ag_\rho \chi^\nu
+  \end{split}
+\end{equation}
+
+\section{Collineation equations for the contorsion tensor}
+
+Given the (anti)symmetry of the contorsion tensor, the collineation equation is
+\begin{equation}
+  \begin{split}
+    \pounds_\Xi \CONTU{\rho}{\mu}{\nu} &= \Xi^{\hat{\sigma}} \PA{\sigma} \CONTU{\rho}{\mu}{\nu} + \CONTU{\sigma }{\mu}{\nu} \PA{\rho} \Xi^{\hat{\sigma}} \\
+    & \quad - \CONTU{\rho }{\sigma}{\nu} \PA{\sigma} \Xi^{\hat{\mu}} - \CONTU{\rho}{\mu}{\sigma} \PA{\sigma} \Xi^{\hat{\nu}} \\
+    &= 0.
+  \end{split}
+\end{equation}
+This equation yields four different collineation equations when the indices are split,
+\begin{equation}
+    \Xi^\sigma \pa{\sigma} \Contu{\xi}{\xi}{\nu} - \Contu{\xi}{\xi}{\sigma} \pa{\sigma} \Xi^\nu - \Contu{\xi}{\sigma}{\nu} \pa{\sigma} \zeta = 0,
+\end{equation}
+\begin{equation}
+  \Xi^\sigma \pa{\sigma} \Contu{\xi}{\mu}{\nu} - \Contu{\xi}{\sigma}{\nu} \pa{\sigma} \Xi^\mu - \Contu{\xi}{\mu}{\sigma} \pa{\sigma} \Xi^\nu + c \Contu{\xi}{\mu}{\nu} = 0,
+\end{equation}
+\begin{equation}
+  \begin{split}
+    \Xi^\sigma \pa{\sigma} \Contu{\rho}{\xi}{\nu} + \Contu{\sigma}{\xi}{\nu} \pa{\rho} \Xi^\sigma - \Contu{\rho}{\xi}{\sigma} \pa{\sigma} \Xi^\nu & \\
+    - \Contu{\xi}{\xi}{\nu} \pa{\rho} \zeta + \Contu{\rho}{\sigma}{\nu} \pa{\sigma} \zeta - c \Contu{\rho}{\xi}{\nu} &= 0,
+  \end{split}
+\end{equation}
+\begin{equation}
+  \begin{split}
+    \Xi^\sigma \pa{\sigma} \Contu{\rho}{\mu}{\nu} + \Contu{\sigma}{\mu}{\nu} \pa{\rho} \Xi^\sigma + \Contu{\xi}{\mu}{\nu} \pa{\rho} \zeta & \\
+    - \Contu{\rho}{\sigma}{\nu} \pa{\sigma} \Xi^\mu - \Contu{\rho}{\mu}{\sigma} \pa{\sigma} \Xi^\nu &= 0,
+  \end{split}  
+\end{equation}
 
 \section{Collineation equations for the torsion tensor}
 
